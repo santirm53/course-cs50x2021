@@ -1,0 +1,35 @@
+#title {
+    color: purple;
+    font-family: Helvetica, sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 3em;
+}
+
+body{
+    background-color: #Bbbbbb;
+    font-family: Garamond, serif;
+    font-size: 1.5em;
+}
+
+h1{
+    font-size: 2.5em;
+}
+
+nav{
+    background-color: purple;
+    font-size: 1em;
+}
+
+ol{
+    list-style-type: upper-roman;
+}
+
+li:hover{
+    color:#9933ff;
+}
+
+footer{
+    font-size: 0.5em;
+    font-style: italic;
+}

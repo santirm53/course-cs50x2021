@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Transaction History
+{% endblock %}
+
+{% block main %}
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Transaction</th>
+                <th>Symbol</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Cash before</th>
+                <th>Cash after</th>
+                <th>Total transaction</th>
+                <th>Transacted</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in range(0, output|length) %}
+                <tr>
+                    <td>{{ output[row]["transaction_type"] }}</td>
+                    <td>{{ output[row]["symbol"] }}</td>
+                    <td>{{ output[row]["shares"] }}</td>
+                    <td>${{ output[row]["stock_price"] }}</td>
+                    <td>${{ output[row]["cash_previous"]|round(2) }}</td>
+                    <td>${{ output[row]["cash_after"]|round(2) }}</td>
+                    <td>${{ output[row]["total_transaction"]|round(2) }}</td>
+                    <td>{{ output[row]["time"] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td colspan="4"></td>
+                <td> {{ totalsum | usd }} </td>
+            </tr>
+        </tfoot>
+        <tbody>
+            {% for row in range(0, indexinfo|length) %}
+                <tr>
+                    <td>{{ indexinfo[row]["symbol"] }}</td>
+                    <td>{{ indexinfo[row]["company"] }}</td>
+                    <td>{{ indexinfo[row]["shares"] }}</td>
+                    <td>{{ indexinfo[row]["price"] | usd }}</td>
+                    <td>{{ indexinfo[row]["total"] | usd }}</td>
+                </tr>
+            {% endfor %}
+            <tr>
+                <td>Cash</td>
+                <td colspan ="3"></td>
+                <td> {{ cash | usd }} </td>
+            </tr>
+        </tbody>
+    </table>
+
+{% endblock %}
